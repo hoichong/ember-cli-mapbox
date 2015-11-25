@@ -18,11 +18,10 @@ export default Ember.Component.extend({
       this.set('map', map);
       map.on('dblclick', function (e) {
           console.log(
-              // e.point is the x, y coordinates of the mousemove event relative
+              // e.containerPoint is the x, y coordinates of the mouse event relative
               // to the top-left corner of the map
-              JSON.stringify(e.point) + '   ' +
-                  // e.lngLat is the longitude, latitude geographical position of the event
-              JSON.stringify(e.lngLat));
+              // e.lngLat is the longitude, latitude geographical position of the event
+              e.containerPoint.toString() + ', ' + e.latlng.toString(); 
       });      
     });
 
